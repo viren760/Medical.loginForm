@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<title> transparent login form</title>
+		<link rel="stylesheet"  type="text/css" href="style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+		hr.new4 {
+        border: 1px solid black;
+
+		</style>
+		<script>
+		function myfun(){
+		
+		var a= document.getElementById("password").value;
+		var b= document.getElementById("passwords").value;
+		var c= document.getElementById("num").value;
+		var str= document.getElementById("password").value;
+		if(a==""){
+		
+			document.getElementById("message").innerHTML="*Please Filled Password*";
+			return false;	
+		}
+		
+		if(a.length<8){
+     		document.getElementById("message").innerHTML="*Password is too small*";
+			return false;	
+		}
+		if(a.length>25){
+				document.getElementById("message").innerHTML="*Password is too big *";
+			return false;	
+		}
+		if(c<11){
+				document.getElementById("num").innerHTML="*Incorrect Number*";
+			return false;	
+		
+		}
+		if(str.search(/(0-9)/)==-1){
+				document.getElementById("message").innerHTML="* Atleast one numeric value Must be entered*";
+			    return false;	
+		}
+		if(str.search(/(a-z)/)==-1){
+				document.getElementById("message").innerHTML="*Atleast one small letter Must be entered*";
+			    return false;	
+		}
+		if(str.search(/(A-Z)/)==-1){
+				document.getElementById("message").innerHTML="*Atleast one large letter Must be entered*";
+			    return false;	
+		}
+		if(str.search(/(!\@\#\$\%\^\&\*\.\,\;\:\+\-)/)==-1){
+				document.getElementById("message").innerHTML="*Atleast one Special Character Must be entered*";
+			    return false;	
+		}
+		if(a!==b){
+				document.getElementById("message").innerHTML="*Password doesnot Match*";
+			return false;	
+		}
+		else{
+			document.getElementById("message").innerHTML="*Password Match*";
+			return false;	
+		}
+		
+		
+		}
+		
+		</script>
+		
+	</head>
+	
+	<body>
+		
+		
+		<div class="login-box1">
+		<form onsubmit="return myfun()">
+		<p>Full Name </p>
+		<input type="text" name="username" placeholder="enter Full Name" required>
+		<p> Email Id</p>
+		<input type="email" name="email" placeholder="enter Email" required>
+		<p>Phone Number </p>
+		<input type="number" id="num" name="number" placeholder="+91" required>
+				<span id="numb" style="color:red;"></span>
+		<p> Password </p>
+		<input type="password" id="password" value="" name="password" placeholder="enter password" required>
+		<i class="fa fa-lock" id="fa" style="font-size:24px " onclick="show()"></i>
+		<span style="color:green">(password should be strong Asd@13sfSD%$8)</span>
+		<br><span id="message" style="color:red;"></span>
+		<p>Confirm Password </p>
+		<input type="password" id="passwords" value="" name="password" placeholder=" confirm password" required>
+		
+		<span id="messages" style="color:red;"></span>	
+		<br>
+		<center><input type="submit" name="submit" value="Submit"> </center>
+		</form>
+		</div>
+		
+		<script>
+		function show(){
+		var password = document.getElementById('password');
+		var icon = document.querySelector('icon');
+		
+		if(password.type==="password"){
+				   password.type= "text";
+				   password.style.marginTop="20px";
+				   }
+				   else{
+				   password.type="password";
+				   }
+		}
+		</script>
+	</body>
+</html>
